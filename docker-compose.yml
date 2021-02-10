@@ -13,8 +13,8 @@ services:
     ports:
       - "8080:8080"
     volumes:
-     - type: volume
-      source: mydata
-      target: /opt/tomcat/webapps
+      - type: volume
+        source: mydata
+        target: /opt/tomcat/webapps
 volumes:
   mydata:
