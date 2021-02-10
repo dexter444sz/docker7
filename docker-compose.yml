@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  boxfuse_build:
+    build: .
+    volumes:
+      - type: volume
+        source: mydata
+        target: /home
+  boxfuse_deploy:
+    image: jeanblanchard/tomcat:9
+    depends_on:
+      - boxfuse_build
+    ports:
+      - "8080:8080"
+    volumes:
+     - type: volume
+      source: mydata
+      target: /opt/tomcat/webapps
+volumes:
+  mydata:
